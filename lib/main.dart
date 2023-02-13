@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:ionicons/ionicons.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -35,11 +37,21 @@ class _MyAppState extends State<MyApp> {
   //   todo.add("item4");
   // }
 
+  // icon: Icon(
+  // Icons.delete,
+  // color: Colors.red
+  // ),
+
+  //Text("ToDos")
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("ToDos"),
-      ),
+        appBar: AppBar(
+          title: Text(""),
+          backgroundColor: Colors.white,
+          shadowColor: Colors.white,
+        ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           showDialog(
@@ -97,6 +109,38 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ));
           }),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
+
+        child: GNav(
+          tabBackgroundColor: Colors.grey[300]!,
+          gap: 8,
+          padding: EdgeInsets.all(16),
+          tabs: const [
+            GButton(icon:
+            Ionicons.home_outline,
+              text: 'Home',
+            ),
+            GButton(icon:
+            Ionicons.calendar_outline,
+              text: 'Sheadule',
+            ),
+            GButton(icon:
+            Ionicons.list_outline,
+              text: 'Todos',
+            ),
+            GButton(icon:
+            Ionicons.person_outline,
+              text: 'Profile',
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
+
+
+
+
+
